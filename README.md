@@ -1,18 +1,75 @@
-# EgoManeuver
+<p align="center">
+  <img src="assets/cover.jpg" alt="EgoManeuver" width="100%">
+</p>
 
-Code for **EgoManeuver**, a benchmark for recognizing fine-grained ego-vehicle actions from front-camera video, and
-for **DenseEgo**, its baseline model.
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/PyTorch-2.11-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch 2.11">
+  <img src="https://img.shields.io/badge/encoder-V--JEPA%202%20ViT--L-6A51A3" alt="V-JEPA 2 ViT-L">
+  <img src="https://img.shields.io/badge/license-research%20use-2B5D8A" alt="research use">
+</p>
 
-EgoManeuver unifies seven public driving datasets (HDD, BDD-X, Argoverse 2, nuScenes, ROAD-Waymo, nuPlan and
-PhysicalAI-AV) into one taxonomy of 16 lateral actions (lane keeping, turns, U-turn, lane changes, merges, branches,
-nudges, borrowing the adjacent lane, pulling over and out) and 6 longitudinal actions (stationary, start, stop,
-accelerate, decelerate, cruise). The labels are derived from the evidence each dataset provides (human annotations,
-HD maps with ego poses, captions, ego poses alone); at test time a model sees the video only.
+<p align="center">
+  <b>Fine-grained ego-vehicle action recognition from front-camera video</b><br>
+  benchmark construction &nbsp;·&nbsp; DenseEgo baseline &nbsp;·&nbsp; video retrieval agent
+</p>
 
-This repository rebuilds every label and segment of the benchmark from the original datasets, trains and evaluates
-DenseEgo and the compared video models, and contains a small video-retrieval agent built on DenseEgo.
-**No video, sensor, map, label data or model weights are included.** Obtain each dataset from its provider under
-its license; the trained weights are obtained by running the training steps below.
+---
+
+**EgoManeuver** unifies seven public driving datasets into one taxonomy of **16 lateral** and **6 longitudinal**
+ego-vehicle actions. Labels are derived from the evidence each dataset provides, while a model sees only the video at
+test time. **DenseEgo** is its baseline: a V-JEPA 2 encoder fine-tuned on the dense per-step labels of the label
+system, with a spatially aware readout and a segment-level head.
+
+## Highlights
+
+- **One taxonomy across seven datasets**: HDD, BDD-X, Argoverse 2, nuScenes, ROAD-Waymo, nuPlan and PhysicalAI-AV;
+  86.6K segments, 190.8 h of video, 26 countries, 7 camera setups.
+- **Multi-source label system**: human labels mapped to the taxonomy, HD-map lane matching with an HMM, caption
+  patterns with ego motion, and pose rules; temporal boundaries aligned across sources; three-stage quality control.
+- **Fine-grained actions**: lane keeping, turns, U-turn, lane changes, merges, branches, nudges, borrowing the
+  adjacent lane, pulling over and out; stationary, start, stop, accelerate, decelerate, cruise.
+- **Full pipeline in code**: building the benchmark from the original data, training and evaluating DenseEgo and six
+  existing video models, transfer to HDD and ROAD-Waymo, and a retrieval agent that searches driving video by action.
+
+> **No video, sensor, map, label data or model weights are included.** Obtain each dataset from its provider under
+> its license; the trained weights are obtained by running the training steps below.
+
+<table>
+<tr><th>Lateral actions (16)</th><th>Longitudinal actions (6)</th></tr>
+<tr><td>
+
+| Family | Classes |
+|---|---|
+| lane keeping | straight, curve |
+| turn | turn left / right, U-turn |
+| lane-level | lane change, merge, branch (left / right) |
+| obstacle | nudge left / right, borrow left |
+| curb | pull over, pull out |
+
+</td><td>
+
+| Class | Speed over the segment |
+|---|---|
+| stationary | stopped throughout |
+| start / stop | from / to standstill |
+| accelerate / decelerate | change of at least 10 km/h |
+| cruise | no substantial change |
+
+</td></tr>
+</table>
+
+## Contents
+
+- [Repository layout](#repository-layout)
+- [Setup](#setup)
+- [1. Build the benchmark](#1-build-the-benchmark-data)
+- [2. Train DenseEgo (how to obtain the weights)](#2-train-densego-how-to-obtain-the-weights)
+- [3. Evaluate and compare](#3-evaluate-and-compare)
+- [4. Video retrieval agent](#4-video-retrieval-agent-agent)
+- [License](#license)
+
+## Repository layout
 
 ```
 egokin/   library: taxonomy, dataset readers, label rules (kinematics, HD-map lane matching, pose rules),
@@ -95,6 +152,9 @@ python -c "import pandas as pd, os; p=os.environ['VEGO_DATA']+'/benchmark/segmen
 
 ## 3. Evaluate and compare
 
+<details open>
+<summary>Commands</summary>
+
 | Experiment | Command |
 |---|---|
 | Benchmark evaluation (test) | `python model/benchmark_eval.py --runs densego,<tag>,... --segments segments_v2_2 --part test --boot 1000 --out eval.json` (mAP, rare-class k/n, macro-F1, false alarms on straight, action-family AP; drive-level bootstrap, paired intervals against the first run) |
@@ -106,6 +166,8 @@ python -c "import pandas as pd, os; p=os.environ['VEGO_DATA']+'/benchmark/segmen
 | HDD (online / offline) | `python model/cache_finetuned.py --run densego --datasets hdd --causal --shard w/4`; `python model/train_hdd_bench.py --aux-kin --bottleneck --tok-pos --steps 8000 --feats ft_causal_densego --causal --window 64 --tag hdd_online --seed <s>` (offline: `--window 128` without `--causal`, `--feats ft_densego`) |
 | ROAD-Waymo | `python model/bench_road_waymo.py --run densego` |
 | Linear probes | `python model/probe_ridge.py --feats vjepa2x_rinterp --tokens pool9,grid33,mid33 --kinds road`; kinematics: `--kinds kin --kin-datasets nuplan,av2,nuscenes` |
+
+</details>
 
 V-JEPA 2 is always loaded through `egokin.models.vjepa_rope.patch_rope` (interpolated RoPE positions for the 224x448
 input), and the cuDNN attention backend is disabled for the encoder (`egokin.models.vjepa21.no_cudnn_sdpa`).
