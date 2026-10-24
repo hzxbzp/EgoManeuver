@@ -1,0 +1,22 @@
+# Versions we used (Python 3.11, CUDA 12.8)
+torch==2.11.0
+torchvision==0.26.0
+transformers==5.18.0
+timm==1.0.30
+av==18.1.0
+opencv-python==5.0.0.*
+numpy==2.4.6
+pandas==3.0.6
+scipy==1.17.1
+scikit-learn==1.9.1
+shapely==2.1.2
+pillow==12.3.0
+matplotlib==3.11.2
+huggingface_hub==1.33.0
+pytest
+# source-specific readers
+nuscenes-devkit        # nuScenes
+av2                    # Argoverse 2
+pyogrio                # nuPlan maps (GeoPackage)
+remotezip              # PhysicalAI-AV clips from the Hugging Face archives
+# existing video models (torch.hub): pytorchvideo, fvcore

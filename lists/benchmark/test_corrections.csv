@@ -1,0 +1,24 @@
+dataset,clip_id,start,end,lat,was,source,note
+bdd,2bce70c2-ce47ed14,10.0,20.0,IGNORE,STRAIGHT,assistant,labelled straight but changes lanes to the left
+hdd,201706061140,2191.8,2201.8,IGNORE,STRAIGHT,assistant,labelled straight but moves left around a double-parked truck
+hdd,201706061536,2720.2,2724.5,IGNORE,STRAIGHT,assistant,labelled straight but moves right across the lane line
+bdd,2612d649-682ecb7c,26.9,38.1,IGNORE,STRAIGHT,assistant,labelled straight but turns (no yaw data)
+hdd,201704141243,3288.8,3293.8,BORROW_LEFT,NUDGE_RIGHT,expert,expert review: BORROW_LEFT
+hdd,201704131047,345.2,349.6,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201706061647,347.3,352.0,NUDGE_LEFT,NUDGE_RIGHT,expert,expert review: NUDGE_LEFT
+hdd,201704131123,561.7,564.1,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704141639,205.9,207.1,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704141639,1191.8,1195.3,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201706061536,966.0,969.3,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704141608,942.4,949.2,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704101118,1156.5,1157.9,IGNORE,NUDGE_RIGHT,expert,expert review: UNSURE
+hdd,201704101118,3492.0,3494.2,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704151035,1268.3,1270.6,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704151035,1336.7,1337.7,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704151502,725.3,727.5,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201710041351,1390.0,1399.8,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201710041351,2054.7,2060.5,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+hdd,201704141055,498.6,509.0,BORROW_LEFT,NUDGE_LEFT,expert,expert review: BORROW_LEFT
+road_waymo,train_00613,4.6,5.2,IGNORE,TURN_LEFT,expert,expert review: UNSURE
+bdd,25383dc7-38877a02,16.0,17.2,IGNORE,U_TURN,expert,expert review: UNSURE
+av2,d3ca0450-2167-38fb-b34b-449741cb38f3,12.5,16.0,IGNORE,STRAIGHT,expert,expert review: UNSURE

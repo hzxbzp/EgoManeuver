@@ -1,0 +1,227 @@
+eid,verdict,suggest,note
+av2_000,unsure,,lateral move left around cones without visible return; nudge vs borrow undecidable (no lane markings)
+av2_001,ok,,passes a stopped truck across the lane line and returns
+av2_002,wrong,STRAIGHT,left-turn pocket opens; ego keeps the through lane (map offset artifact of the lane split)
+av2_003,ok,,lane splits at a barrier; bus goes left and ego takes the right lane
+av2_004,ok,,ego crosses the green bike lane into a new lane on the right (right branch / turn pocket)
+av2_010,ok,,clear left lane change across a dashed line
+av2_011,ok,,left lane change after crossing an intersection
+av2_012,ok,,moves left around a stopped truck into the left lane (no return within the clip)
+av2_013,ok,,left lane change right after a left curve
+av2_014,ok,,left lane change after a right turn
+av2_015,ok,,moves left around a stopped box truck (S-shaped yaw)
+av2_016,ok,,left lane change across a dashed line between parked cars
+av2_017,ok,,left lane change past vehicles in the right lane
+av2_018,ok,,left lane change across a dashed line
+av2_019,unsure,,slow left drift over ~10 s (yaw < 2 deg/s); markings not visible; map says neighbor lane
+av2_020,ok,,right lane change into a lane with sharrow markings
+av2_021,ok,,gentle right lane change at 41 km/h (dashed line shifts left in the image)
+av2_022,ok,,right lane change into the right-turn lane, then turns right
+av2_023,ok,,right lane change behind an SUV at low speed
+av2_024,ok,,moves right across a solid/dashed line near an intersection (clip ends during the maneuver)
+av2_025,ok,,road widens after a left curve; ego crosses a dashed line into the right lane (LC vs branch borderline)
+av2_026,wrong,STRAIGHT,re-centering in the lane (offset -0.45 -> +0.2 m) with nothing to avoid; no excursion and return
+av2_027,ok,,in-lane shift left (~0.5 m) while passing a cyclist in the bike lane
+av2_028,unsure,BORROW_LEFT,goes ~3 m left around a work zone (mixer truck, worker) on an unmarked road; in-lane vs out-of-lane unclear; unflagged work zone
+av2_029,wrong,STRAIGHT,shift right as the lane widens at an intersection (offset jump = lane re-matching); no excursion and return
+av2_030,wrong,STRAIGHT,small S-shaped path at a curve exit (+-0.5 m); normal lane keeping
+av2_031,ok,,in-lane shift right (~0.7 m) while an oncoming SUV passes close to the center line
+av2_032,wrong,BORROW_LEFT,DIRECTION ERROR: yaw > 0 and offset 0 -> +2.2 m (left) to pass a parked truck on the right; labelled NUDGE_RIGHT
+av2_033,wrong,STRAIGHT,same habitual-offset bias as av2_032: offset ~ -0.1 m (no excursion); the real maneuver (left around cones) starts at +2 s and is labelled av2_000; unflagged work zone (cones)
+av2_005,ok,,curved road (right then left) with a bus alongside
+av2_006,ok,,mild left curve
+av2_007,wrong,IGNORE,clip starts mid right turn (yaw -30 deg/s) labelled CURVE; after +2 s the road is straight
+av2_008,ok,,gentle right curve under an overpass at 44 km/h; construction barrels on the left (unflagged work zone)
+av2_034,ok,,left turn at an intersection
+av2_035,ok,,left turn (two yaw humps, turn then left curve); construction signs (unflagged work zone)
+av2_036,ok,,left turn at an intersection
+av2_037,unsure,CURVE,pose-only turn outside an intersection (~45 deg at 13 km/h) following vans in an industrial lot; turn vs curve
+av2_038,ok,,right turn at an intersection; construction barrels (unflagged work zone)
+av2_039,ok,,right turn at an intersection
+av2_040,ok,,right turn at an intersection
+av2_041,ok,,right turn at an intersection behind a van
+bdd_046,ok,,left lane change past a mixer truck under an elevated track (caption span 7 s; boundaries coarse)
+bdd_047,ok,,moves left behind a taxi (weak visual evidence); yaw rate exactly 0 in this window (GPS-derived yaw, too coarse for a lane change)
+bdd_048,ok,,left lane change across a dashed line at 52 km/h
+bdd_049,wrong,MERGE_LEFT,on-ramp after a large turn joins the highway past a yield sign: a merge, not a lane change
+bdd_050,ok,,caption span 10 s ("switching to the left lane"), followed by "moves back to the right lane" (out-and-back: borrow-like); span far longer than the maneuver; dusk
+bdd_051,ok,,left lane change into the left-turn lane, then turns left
+bdd_052,ok,,moves left past a taxi that pulls right (weak evidence)
+bdd_053,ok,,moves left past a van at 45 km/h
+bdd_054,ok,,left lane change into the left-turn lane (turn arrow visible)
+bdd_055,ok,,ends left of a pickup that was ahead (weak evidence; yaw sign does not match a left move)
+bdd_056,ok,,passes two buses on the left; caption span 12 s ("switches to the left lane", then "switches back to the right"); coarse
+bdd_057,ok,,slow right lane change behind a pickup on a snowy street (no yaw data)
+bdd_058,ok,,right lane change into the right-turn lane before a right turn (rain, dusk; weak visual)
+bdd_059,ok,,moves right behind a bus (yaw -12 deg/s), then turns right
+bdd_060,ok,,moves right behind a bus after straddling lanes (rain)
+bdd_061,ok,,caption span 8 s; the clear yaw S-curve is just before the span, so the span covers mostly the end of the maneuver; coarse
+bdd_062,ok,,moves right behind a shuttle van onto an entrance lane
+bdd_063,ok,,right lane change, then right turn into a parking lot
+bdd_064,unsure,MERGE_RIGHT,18 s caption span; the ego passes a gore area where its lane joins the right lane (merge vs lane change); span far too long
+bdd_065,ok,,moves right behind a white van in congestion (no yaw data)
+bdd_066,ok,,right lane change on a highway (yaw right then left)
+bdd_067,ok,,moves right in congestion beside a construction site (unflagged work zone)
+bdd_068,unsure,TURN_RIGHT,bears right at a fork with a painted island and stop line (~50 deg heading change over ~7 s); turn or branch, not a lane change
+bdd_069,ok,,right lane change on a rainy street (yaw right then left)
+bdd_070,ok,,right lane change behind a van (yaw right then left)
+bdd_071,wrong,IGNORE,creeps forward at 2 km/h through a crowded crosswalk; no curb departure visible (caption "pulls out")
+bdd_072,ok,,pulls out from a snowy curb into traffic (no yaw data)
+bdd_073,unsure,IGNORE,driving out of a parking lot toward the street (parking-lot exit, not a curbside pull out); camera faces parked cars
+bdd_074,ok,,pulls out of a curbside spot onto a residential street; yaw spike -190 deg/s is a GPS-heading artifact at 7 km/h
+bdd_075,ok,,pulls out from between parked cars, then turns right
+bdd_076,ok,,pulls out after a curbside stop and drives on (span 9 s, coarse)
+bdd_077,ok,,slowly leaves a spot behind a snow pile; yaw +-120 deg/s are GPS-heading artifacts
+bdd_078,ok,,pulls out from the curb next to a construction fence (yaw +-150 deg/s GPS artifacts at 3 km/h)
+bdd_079,ok,,pulls out left from the curb at dusk (yaw left, slow)
+bdd_080,ok,,pulls out from curbside past a parked car under scaffolding
+bdd_082,unsure,IGNORE,crawls behind traffic on a snowy street at 3 km/h; a move to the curb is not visible (caption "pulling over slowly")
+bdd_083,wrong,PULL_OVER only ~0-6 s; rest IGNORE,29 s span: after reaching the curb the car is parked and the camera is knocked/occluded (+15 to +20 s shows a mirror and a sleeve); yaw spikes are artifacts
+bdd_084,ok,,pulls over to the right snow bank and stops (span includes the stop)
+bdd_085,ok,,steers right to the curb (yaw negative before the span), aligns and stops; span starts at the counter-steer
+bdd_086,ok,,pulls over to the right curb by a plaza and stops (no yaw data)
+bdd_087,ok,,from standstill: S-maneuver to the curb behind a parked SUV, then parks (repositioning / pull over)
+bdd_088,wrong,IGNORE,night (scope leak); "pulls over to the right lane" at 51 km/h without stopping: not a curbside pull over, lane change not visible
+bdd_089,wrong,LANE_CHANGE_RIGHT,"pulls over to the right lane" at 60 km/h on a highway with yaw to the right and no stop: a right lane change
+bdd_098,wrong,CURVE,no U-turn in the captions (right turn, then "going around a curve"); follows a long curved residential street (radius ~40 m)
+bdd_099,unsure,CURVE,hairpin on a narrow hilly road at 6 km/h (~160 deg); no U-turn in the captions; constant yaw = interpolated GPS
+bdd_100,wrong,IGNORE,car is stationary ("sits idle"); the 180 deg/s yaw spike is a GPS artifact
+bdd_101,ok,,U-turn per caption (11-17 s) and video; u1 span (1.2 s from a yaw spike) is too short and misplaced
+bdd_102,wrong,CURVE,cloverleaf ramp ("large turn around a bend" matched the U-turn regex "turn(s|ing)? around")
+bdd_103,ok,,U-turn on a residential street (caption "pulls a u turn" did not match the regex "u-?turn"; label came from the gyro rule)
+bdd_104,ok,,U-turn at dusk (caption and yaw agree)
+bdd_105,wrong,IGNORE,parking garage: two separate left turns around a parking row merged into one U-turn (~200 deg over 13 s)
+bdd_106,wrong,IGNORE,camera mostly blocked by a card; captions say the car stops and then reverses; yaw spikes are artifacts
+bdd_107,wrong,IGNORE,crawling at 5 km/h in a lot ("moving around slowly"); the -195 deg/s yaw spike is a GPS artifact
+bdd_108,ok,,U-turn across the road (caption "makes a u turn"; caught by the gyro rule)
+bdd_109,unsure,TURN_LEFT,dusk: long slow left (~170 deg over ~9 s) at an intersection; captions only say "steering to the left"; U-turn vs left turn unclear
+bdd_090,ok,,left turn inside a parking lot
+bdd_091,ok,,left turn at an intersection
+bdd_092,ok,,left turn at an intersection, then stops
+bdd_093,ok,,left turn out of a parking lot toward the street
+bdd_094,wrong,IGNORE,night, rain (scope leak): car stopped at a red light under an elevated track; the 0.8 s "turn" is a GPS yaw artifact at 3 km/h
+bdd_095,ok,,right turn at an intersection
+bdd_096,ok,,right turn out of a lot onto the road
+bdd_097,ok,,right turn at an intersection
+bdd_042,ok,,left curve on a residential street
+bdd_043,unsure,TURN_RIGHT,tail of a right turn (caption "turning to the right" 27-32 s) labelled CURVE; turn/curve boundary
+bdd_044,wrong,STRAIGHT,straight street after a turn; yaw wiggles are pothole/GPS noise
+bdd_045,wrong,LANE_CHANGE_LEFT,caption "merges into the lane to its left" (14-17 s) not matched by the regex; labelled CURVE, the next "turn right" also looks spurious
+nus_190,unsure,NUDGE_RIGHT,swerves right around people loading a car on a curved two-lane road, then back; "lane change" in the scene description; crosses the boundary?
+nus_195,wrong,IGNORE,low-speed curving drive through a campus drop-off loop (map lane re-matching); no lane change visible
+nus_196,ok,,right lane change into the right-turn lane (arrows) at an intersection approach
+nus_197,ok,,moves right into the right-turn lane (rain)
+nus_191,ok,,right curve on a winding road
+nus_192,ok,,gentle left bend after an intersection
+nus_193,unsure,STRAIGHT,crosses an intersection on a slightly curved path (yaw -2 to -4 deg/s); "curve" vs straight through an intersection
+nus_194,ok,,winding road with S-bends
+nus_198,ok,,left turn into a building drop-off zone
+nus_199,ok,,left turn at an intersection (rain)
+nus_200,unsure,U_TURN,first half of a U-turn on a street (scene description: "U turn"); the turn continues past the clip end
+nus_201,ok,,left turn in a parking lot
+nus_202,ok,,right turn at an intersection
+nus_203,ok,,two right turns merged into one 8.5 s event (map has two events: -51 and -115 deg); class right
+nus_204,ok,,right turn at a T-junction
+nus_205,ok,,right turn at a T-junction
+roa_206,ok,,left lane change across a dashed line (no kinematics in ROAD-Waymo)
+roa_207,unsure,,left drift past a dashed line approaching an intersection; u1 core only 0.5 s
+roa_208,wrong,BORROW_LEFT,goes left around a garbage truck stopped in the lane on a two-lane street, across the double yellow; returns after
+roa_209,wrong,STRAIGHT,residential street; no lane change visible (only a slight left drift)
+roa_210,wrong,BORROW_LEFT,goes left around a stopped mail truck and returns right (one out-and-back = borrow; annotated as two lane changes)
+roa_211,wrong,BORROW_LEFT,return half of the same maneuver as roa_210
+roa_212,wrong,STRAIGHT,low-sun glare on a residential street, then a slight right curve; no lane change visible
+roa_213,wrong,STRAIGHT,unmarked residential street following its curve; no lane change
+roa_214,wrong,TURN_RIGHT,turns right around a building corner at an SF intersection onto a downhill street (not a lane change)
+roa_215,unsure,,approaches an intersection near the right curb as a bus crosses; u1 core 0.6 s; lane change not clearly visible
+roa_216,unsure,TURN_RIGHT,view pans right across buildings to a stop sign with pedestrians: looks like a right turn on a hill, not a lane change
+roa_217,ok,,slow right lane change over ~8 s toward an intersection (span 11 s, coarse)
+roa_218,ok,,left turn from a driveway or side street onto a residential street (rain)
+roa_219,ok,,end of a left turn at the clip start (rain, dusk); short core
+roa_220,ok,,left turn at a downtown intersection
+roa_221,ok,,left turn in a parking lot at a viewpoint
+roa_222,ok,,right turn at a signalized intersection onto a wide road
+roa_223,ok,,right turn at an SF intersection
+roa_224,ok,,right turn from a T-junction onto a curved road
+roa_225,unsure,,0.7 s "turn" while rolling toward a STOP line at a parking-lot exit (rain); little heading change visible
+av2_009,ok,,after a right turn moves left across the dashed line of a two-lane one-way street
+bdd_081,wrong,LANE_CHANGE_RIGHT,"pulls over to the right lane" at 40 km/h without stopping: a right lane change (PULL_OVER regex matched "pulls over")
+hdd_110,ok,,goes left around a double-parked mail truck on an SF street and returns
+hdd_111,ok,,moves toward the center line past parked cars after a crosswalk, then back
+hdd_112,ok,,goes left around a bus at a stop and returns
+hdd_113,ok,,goes left around stopped cars at 8 km/h, then turns right
+hdd_114,ok,,goes left around a UPS truck stopped in the lane and returns
+hdd_115,ok,,short swing left past a parked pickup on a narrow street
+hdd_116,ok,,jogs right through an intersection around a slowing car and back
+hdd_117,ok,,swings right around a stopped SUV under an elevated freeway
+hdd_118,unsure,LANE_CHANGE_RIGHT,leaves a left-turn-only lane (arrow) for the through lane on the right and stays there: lane change rather than an out-and-back
+hdd_119,ok,,bears left into a branching left-turn pocket before an intersection
+hdd_120,ok,,bears left into a left-turn pocket at an intersection
+hdd_121,ok,,keeps the left branch where a highway lane splits off (93 km/h; heading change ~0)
+hdd_122,ok,,bears left as the road widens before an intersection (human label; weak visual)
+hdd_123,ok,,bears left where the road widens before an intersection
+hdd_124,ok,,takes the left of two lanes as a lane appears before an intersection (weak visual)
+hdd_125,unsure,,lanes split on a gentle left curve; ego keeps right; branch vs lane keeping
+hdd_126,ok,,takes the right lane where the road splits under an overpass
+hdd_127,ok,,bears right at a fork with a painted median (PED XING)
+hdd_128,unsure,,road widens after a crosswalk; ego keeps toward the right; yaw is positive (left); branch not evident
+hdd_129,ok,,takes the right branch toward an exit after an overpass
+hdd_130,ok,,moves into a right-turn lane that branches off (arrow), then turns right
+hdd_131,ok,,right curve on a residential hill street
+hdd_135,ok,,left lane change on a highway at 106 km/h (dashed line passes under the car)
+hdd_136,ok,,left move after a curve on an urban street (weak visual)
+hdd_137,ok,,left lane change before an intersection on a two-lane street
+hdd_138,ok,,left lane change where two lanes merge into one on a highway (merge-like)
+hdd_139,ok,,left lane change across a dashed line behind a truck on a highway
+hdd_140,ok,,left lane change on a highway at 103 km/h
+hdd_141,ok,,right lane change on an urban arterial
+hdd_142,ok,,right lane change on an urban street (cone in the left lane)
+hdd_143,ok,,right lane change from the left-turn lane into the through lane at an intersection
+hdd_144,ok,,right lane change across tram tracks on an SF street
+hdd_145,ok,,right lane change on a highway at 104 km/h
+hdd_146,ok,,right lane change behind a truck in slow traffic
+hdd_148,ok,,lane drop with a merge arrow on an urban arterial; ego merges left (weak visual)
+hdd_149,ok,,on-ramp joins a highway on the left (merge into traffic)
+hdd_150,unsure,MERGE_RIGHT,highway lane drop (arrow); yaw is to the right while the label says left; direction unclear
+hdd_151,ok,,joins highway traffic on the left in strong glare (weak visual)
+hdd_152,ok,,lane-drop arrow on a highway; merge into the left lane (0.5 s core; weak)
+hdd_153,ok,,after a right turn onto a ramp, merges right under an overpass in rain
+hdd_154,ok,,ramp joins the lane on the right (lane lines converge; merge)
+hdd_155,ok,,two lanes become one on a residential street (merge; 0.6 s core)
+hdd_156,unsure,IGNORE,two lanes become one on a rural road; the right lane continues and the ego appears to be in it; direction unclear
+hdd_157,ok,,ramp curving right under an overpass joins another road (merge)
+hdd_158,ok,,lane-drop arrow on a highway; ego merges right (S-shaped yaw)
+hdd_159,ok,,shifts left past a cyclist on a residential street
+hdd_160,ok,,shifts left past a mail truck stopped on the right on a narrow street and returns
+hdd_161,ok,,shifts left to clear a car door or parked SUV before a STOP line (weak)
+hdd_162,ok,,shifts left around a mail truck stopped on the right
+hdd_163,ok,,in-lane shift on a two-lane street between parked cars (weak visual)
+hdd_164,unsure,,5 km/h through a busy shared space with pedestrians; a left drift and back; nudge vs normal path
+hdd_165,unsure,,after a left turn into an alley, shifts right away from a truck parked on the left; label plausible but weak
+hdd_166,unsure,NUDGE_LEFT,passes a bus stopped at the right curb; the move appears to be leftward, not right
+hdd_167,unsure,NUDGE_LEFT,passes a FedEx truck stopped on the right of a narrow street; the move appears to be leftward
+hdd_168,ok,,swings right around a truck stopped in the lane on the left side, then back (yaw right then left)
+hdd_169,ok,,moves right toward parked cars to give way to an oncoming car on a narrow street (yaw right)
+hdd_170,ok,,moves right around a car at a merge point on a residential road, then back left
+hdd_171,ok,,pulls over to the right curb behind a parked SUV and stops
+hdd_172,unsure,IGNORE,a sharp left turn into a driveway or parking spot at 6 km/h (yaw +25 deg/s), not a curbside pull over
+hdd_173,ok,,pulls over to the right curb (yaw right then left) and slows
+hdd_174,ok,,roundabout on a campus (yaw right, left around, right exit); 22 s span
+hdd_175,ok,,roundabout with YIELD markings (right, left around, right)
+hdd_184,ok,,U-turn at a median opening (left-turn arrow) on the Embarcadero
+hdd_185,ok,,U-turn at an intersection crosswalk
+hdd_186,ok,,U-turn in a parking lot loop
+hdd_187,ok,,U-turn at a signalized intersection (U-turn arrow), then a bike lane
+hdd_188,ok,,U-turn on a rough industrial road (slow, ~8 s)
+hdd_189,ok,,U-turn on a dead-end street with a construction site (cones; unflagged work zone)
+hdd_132,unsure,STRAIGHT,0.3 s CURVE fragment inside an ignore region on a straight residential street (rule-generated curve, not human)
+hdd_133,unsure,NUDGE_RIGHT,shifts around a parked pickup and a worker on the right; mild yaw; curve label doubtful
+hdd_134,ok,,left curve on a hilly two-lane road (0.5 s core inside ignore bands)
+hdd_176,ok,,left turn at a signalized intersection
+hdd_177,ok,,left turn after a STOP line
+hdd_178,ok,,left turn right after a right turn (KEEP CLEAR intersection)
+hdd_179,ok,,left turn at a downtown intersection
+hdd_180,ok,,right turn after a STOP (slow start; the turn proper is the second half of the span)
+hdd_181,ok,,right turn at an intersection
+hdd_182,ok,,right turn at a T-junction; the label ends before the yaw peak (boundary early)
+hdd_183,ok,,right turn after a STOP with cones (unflagged work zone)
+hdd_147,ok,,highway in rain; merge left as a lane ends (weak visual; human label)

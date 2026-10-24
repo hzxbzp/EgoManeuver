@@ -1,0 +1,5 @@
+dataset,clip_id,start,end,lat,was,source,note
+hdd,201710041102,1974.5,1977.5,LANE_CHANGE_RIGHT,BRANCH_RIGHT,expert_audit,test audit a005
+hdd,201706061309,1916.3,1917.8,CURVE,MERGE_LEFT,expert_audit,test audit a059
+hdd,201704101118,3988.6,3991.0,LANE_CHANGE_LEFT,BRANCH_LEFT,expert_audit,test audit a088
+hdd,201704131020,921.8,925.5,IGNORE,MERGE_RIGHT,expert_audit,test audit a211
