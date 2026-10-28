@@ -14,6 +14,11 @@
   benchmark construction &nbsp;·&nbsp; DenseEgo baseline &nbsp;·&nbsp; video retrieval agent
 </p>
 
+<p align="center">
+  <a href="assets/egomaneuver_video.mp4"><img src="assets/preview.gif" alt="Demo video" width="80%"></a><br>
+  <sub>Demo video (1:50): <a href="assets/egomaneuver_video.mp4">assets/egomaneuver_video.mp4</a></sub>
+</p>
+
 ---
 
 **EgoManeuver** unifies seven public driving datasets into one taxonomy of **16 lateral** and **6 longitudinal**
@@ -32,7 +37,7 @@ system, with a spatially aware readout and a segment-level head.
 - **Full pipeline in code**: building the benchmark from the original data, training and evaluating DenseEgo and six
   existing video models, transfer to HDD and ROAD-Waymo, and a retrieval agent that searches driving video by action.
 
-> **No video, sensor, map, label data or model weights are included.** Obtain each dataset from its provider under
+> **No dataset videos, sensor, map, label data or model weights are included** (the demo video only shows examples). Obtain each dataset from its provider under
 > its license; the trained weights are obtained by running the training steps below.
 
 <table>
